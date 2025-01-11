@@ -277,7 +277,7 @@ int main(void) {
         }
     }
     
-    perimeter[j] = '\0';
+    perimeter[j] = '\n'; // Adding a new line char as requested by the exercise
     printf("%s\n", perimeter);
     
     // Creating a file variable
