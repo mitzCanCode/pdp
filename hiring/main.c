@@ -1,4 +1,4 @@
-/* USER: user239.37pdp
+/* USER: username
  LANG: C
  TASK: hiring */
 
