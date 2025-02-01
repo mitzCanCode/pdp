@@ -1,4 +1,4 @@
-/* USER: user239.37pdp
+/* USER: username
  LANG: C
  TASK: hiring */
 
@@ -125,7 +125,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    FILE* file = fopen("/Users/mitz/Developer/pdp/hiring/hiring/hiring.in", "r");
+    FILE* file = fopen("hiring.in", "r");
     
     
     for (int i=0; i < 2; i++) {
