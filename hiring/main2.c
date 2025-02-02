@@ -1,4 +1,4 @@
-/* USER: username
+/* USER: user239.37pdp
  LANG: C
  TASK: hiring */
 
@@ -125,7 +125,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    FILE* file = fopen("hiring.in", "r");
+    FILE* file = fopen("/Users/mitz/Developer/pdp/hiring/hiring/hiring.in", "r");
     
     
     for (int i=0; i < 2; i++) {
@@ -153,8 +153,12 @@ int main(int argc, const char * argv[]) {
     int bronze[candidates];
     int used[total_all];
     int used_count = 0;
+
+    for (int j; j<total_all; j++) {
+        used[j] = -1;
+    }
     
-    
+    printf("\n%d\n", candidates);
     while (fgets(line, sizeof(line), file)) {
         sscanf(line, "%d %d %d", &bronze[applicant], &silver[applicant], &gold[applicant]);
         printf("%d %d %d\n", bronze[applicant], silver[applicant], gold[applicant]);
@@ -165,6 +169,10 @@ int main(int argc, const char * argv[]) {
     }
     
     mergeSort(gold, gold_n, 0, candidates - 1);
+    for (int j = 0; j<candidates; j++){
+        printf("%d:%d ", gold[j], gold_n[j]);
+    }
+    printf("\n");
     int i = 0;
     while (gold_given < total_gold && i < candidates) {
         if (x_is_in_array(used, total_all, gold_n[i])) {
@@ -175,13 +183,16 @@ int main(int argc, const char * argv[]) {
         // Checking if the performance of bronze for the same candidate is the same or better
         if ((bronze[gold_n[i]] >= gold[i]) && (bronze_given < total_bronze)) {
             performance += bronze[gold_n[i]];
+            printf("\nJust added: %d at position %d\n (1st if g)", bronze[gold_n[i]], gold_n[i]);
             bronze_given++;
         // Checking if the performance of silver for the same candidate is the same or better
         } else if ((silver[gold_n[i]] >= gold[i]) && (silver_given < total_silver)) {
             performance += silver[gold_n[i]];
+            printf("\nJust added: %d at position %d(2nd if g)\n", silver[gold_n[i]], gold_n[i]);
             silver_given++;
         } else if (gold_given < total_gold) {
             performance += gold[i];
+            printf("\nJust added: %d at position %d(3rd if g)\n", gold[i], gold_n[i]);
             gold_given++;
         } else {
             break;
@@ -189,11 +200,21 @@ int main(int argc, const char * argv[]) {
         
         used[used_count] = gold_n[i];
         used_count++;
+
+        printf("Used: ");
+        for (int j = 0; j<used_count; j++){
+            printf("%d ", used[j]);
+        }
+        printf("\n");
         i++;
         
     }
     
     mergeSort(silver, silver_n, 0, candidates - 1);
+    for (int j = 0; j<candidates; j++){
+        printf("%d:%d ", silver[j], silver_n[j]);
+    }
+    printf("\n");
     i = 0;
     while (silver_given < total_silver && i < candidates){
         if (x_is_in_array(used, total_all, silver_n[i])) {
@@ -203,36 +224,55 @@ int main(int argc, const char * argv[]) {
         // Checking if the performance of bronze for the same candidate is the same or better
         if ((bronze[silver_n[i]] >= silver[i]) && (bronze_given < total_bronze)){
             performance += bronze[silver_n[i]];
+            printf("\nJust added: %d at position %d (1st if s)\n", bronze[silver_n[i]], silver_n[i]);
+
             bronze_given += 1;
         } else if (silver_given < total_silver) {
             performance += silver[i];
+            printf("\nJust added: %d at position %d(2nd if s)\n", silver[i], silver_n[i]);
+
             silver_given++;
         } else {
             break;
         }
         used[used_count] = silver_n[i];
         used_count++;
+        printf("Used: ");
+        for (int j = 0; j<used_count; j++){
+            printf("%d ", used[j]);
+        }
+        printf("\n");
         i++;
     }
     
     
     mergeSort(bronze, bronze_n, 0, candidates - 1);
+    for (int j = 0; j<candidates; j++){
+        printf("%d:%d ", bronze[j], bronze_n[j]);
+    }
+    printf("\n");
     i =0;
     while (bronze_given < total_bronze && i < candidates) {
         if (x_is_in_array(used, total_all, bronze_n[i])) {
             i++;
             continue;
         }
-        
         if (bronze_given < total_bronze) {
             performance += bronze[i];
+            printf("\nJust added: %d at position %d(1st if b)\n", bronze[i], bronze_n[i]);
             bronze_given++;
         } else {
             break;
         }
-        
+
         used[used_count] = bronze_n[i];
         used_count++;
+        printf("Used: ");
+        for (int j = 0; j<used_count; j++){
+            printf("%d ", used[j]);
+        }
+        printf("\n");
+        
         i++;
             
     }
