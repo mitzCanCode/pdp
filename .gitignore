@@ -1,0 +1,82 @@
+# Compiled Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Debug information
+*.dSYM/
+*.su
+
+# Temporary files
+*.tmp
+*.temp
+
+# Input/Output files (competition specific)
+*.in
+*.out
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# MacOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserdata/
+*.xccheckout
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcuserstate
+
+# Build directories
+build/
+Build/
+DerivedData/
+
+# Logs
+*.log
+
+# Package files
+*.zip
+*.tar.gz
+*.rar
+
+# Security - Personal information
+**/secrets.*
+**/*secret*
+**/*password*
+**/*key*
+.env
